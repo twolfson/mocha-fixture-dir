@@ -1,6 +1,12 @@
 # mocha-fixture-dir [![Build status](https://travis-ci.org/twolfson/mocha-fixture-dir.png?branch=master)](https://travis-ci.org/twolfson/mocha-fixture-dir)
 
-Create/copy directories to automatically cleaned up temporary directories via Mocha
+Create/copy directories to automatically cleaned up temporary directories via [Mocha][]
+
+[Mocha]: https://github.com/visionmedia/mocha/
+
+More information on the repository can be found in [`fixture-dir's` documentation][fixture-dir].
+
+[fixture-dir]: https://github.com/twolfson/fixture-dir
 
 ## Getting Started
 Install the module with: `npm install mocha-fixture-dir`
