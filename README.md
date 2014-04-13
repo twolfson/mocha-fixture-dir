@@ -51,10 +51,11 @@ Returns:
 
 - fixtureUtils `FixtureUtils`, object with methods for creating/interacting with a `FixtureDir` in `Mocha's before/after` contexts
 
-### `FixtureUtils#init(folderName)`
+### `FixtureUtils`
+#### `FixtureUtils#init(folderName)`
 Initialize the `FixtureDir` constructor inside of a `before` block. This must be run before any other `FixtureUtils` calls.
 
-### `FixtureUtils#mkdir(options)`
+#### `FixtureUtils#mkdir(options)`
 Runs `FixtureDir#mkdir` on the current `FixtureDir` instance inside a `Mocha's before` block. Additionally, it cleans up the directory via `FixtureDir#destroy` in an `after` block.
 
 ## Contributing
