@@ -12,14 +12,36 @@ More information on the repository can be found in [`fixture-dir's` documentatio
 Install the module with: `npm install mocha-fixture-dir`
 
 ```javascript
-var mocha_fixture_dir = require('mocha-fixture-dir');
-mocha_fixture_dir.awesome(); // "awesome"
+// Generate our fixture utils
+var exec = require('child_process').exec;
+var FixtureDir = require('fixture-dir');
+var mochaFixtureDir = require('mochaFixtureDir');
+var fixtureUtils = mochaFixtureDir(FixtureDir);
+
+// Generate a tmp namespace for our tests
+fixtureUtils.init('my-node-module-tests');
+
+// Copy over folder contents (`git-log`) to temporary directory (`/tmp/my-node-module-tests/git-log`)
+// This also cleans up the directory on `after`
+fixtureUtils.mkdir({
+  folderName: 'git-log',
+  copyFrom: __dirname + '/test-files/git-log' // Folder with `.git` activity
+});
+before(function (done) {
+  // Run `git log` in our directory ()
+  exec('git log', {cwd: this.dir.path}, function (err, stdout, stderr) {
+    // Save our stdout and callback
+    this.stdout = stdout;
+    done(err);
+  });
+});
+
+it('retrieved `git log` in our fixture directory', function () {
+  assert(this.stdout);
+});
 ```
 
 ## Documentation
-_(Coming soon)_
-
-## Examples
 _(Coming soon)_
 
 ## Contributing
