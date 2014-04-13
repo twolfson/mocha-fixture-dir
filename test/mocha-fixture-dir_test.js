@@ -24,12 +24,14 @@ describe('mocha-fixture-dir wrapping a FixtureDir interface', function () {
       });
     });
 
-    it('cleans up the directory when leaving the previous context', function () {
-      var files = fs.readdirSync('/tmp/mocha-fixture-dir-tests');
-      expect(this.files).to.have.length(0);
+    describe('after leaving the previous context', function () {
+      it('cleans up the directory', function () {
+        var files = fs.readdirSync('/tmp/mocha-fixture-dir-tests');
+        expect(files).to.have.length(0);
+      });
     });
 
-    describe('create a directory without any parameters', function () {
+    describe.skip('create a directory without any parameters', function () {
       it('creates a directory', function () {
 
       });
