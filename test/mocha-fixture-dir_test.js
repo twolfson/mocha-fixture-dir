@@ -31,9 +31,11 @@ describe('mocha-fixture-dir wrapping a FixtureDir interface', function () {
       });
     });
 
-    describe.skip('create a directory without any parameters', function () {
-      it('creates a directory', function () {
+    describe('create a directory without any parameters', function () {
+      fixtureUtils.mkdir();
 
+      it('creates a directory', function () {
+        expect(files).to.have.length(1);
       });
     });
   });
