@@ -35,6 +35,7 @@ describe('mocha-fixture-dir wrapping a FixtureDir interface', function () {
       fixtureUtils.mkdir();
 
       it('creates a directory', function () {
+        var files = fs.readdirSync('/tmp/mocha-fixture-dir-tests');
         expect(files).to.have.length(1);
       });
     });
