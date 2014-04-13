@@ -42,7 +42,20 @@ it('retrieved `git log` in our fixture directory', function () {
 ```
 
 ## Documentation
-_(Coming soon)_
+`mocha-fixture-dir` returns `mochaFixtureDir` as its `module.exports`.
+
+### `mochaFixtureDir(FixtureDir)`
+Factory that wraps a `FixtureDir` instance with [Mocha][] methods.
+
+Returns:
+
+- fixtureUtils `FixtureUtils`, object with methods for creating/interacting with a `FixtureDir` in `Mocha's before/after` contexts
+
+### `FixtureUtils#init(folderName)`
+Initialize the `FixtureDir` constructor inside of a `before` block. This must be run before any other `FixtureUtils` calls.
+
+### `FixtureUtils#mkdir(options)`
+Runs `FixtureDir#mkdir` on the current `FixtureDir` instance inside a `Mocha's before` block. Additionally, it cleans up the directory via `FixtureDir#destroy` in an `after` block.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
